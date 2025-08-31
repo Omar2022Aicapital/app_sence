@@ -11,7 +11,7 @@ from decouple import config
 import os # Importar os para verificar si el archivo existe
 
 # Clave de cifrado segura desde variables de entorno (mejor para la nube)
-clave = config("CLAVE_ENCRYPT")  # Se recomienda almacenar en Secret Manager
+clave = st.secrets["CLAVE_ENCRYPT"] # Se recomienda almacenar en Secret Manager
 if not clave:
     st.error("❌ No se encontró la clave de cifrado. Configura CLAVE_ENCRYPT en las variables de entorno.")
     st.stop()
@@ -204,4 +204,5 @@ def main():
                     st.warning(f"⚠️ No se encontró el informe '{nombre_informe_final}'. Por favor, genéralo primero.")
 
 if __name__=='__main__':
+
     main()
