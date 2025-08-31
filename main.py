@@ -26,10 +26,10 @@ options.add_argument("--disable-blink-features=AutomationControlled")
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
 
-service = Service(ChromeDriverManager().install())
+#service = Service(ChromeDriverManager().install())
 
 def procesar_cursos(rut,rut_sin_guion,contrasena, excel_porcentaje,opcion_xpath,nombre_final):
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(options=options) # <-- ASÍ DE SIMPLE
     driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     
     url = "https://auladigital.sence.cl/login/index.php"
@@ -151,4 +151,5 @@ def procesar_cursos(rut,rut_sin_guion,contrasena, excel_porcentaje,opcion_xpath,
     df_dedi = pd.DataFrame(datos_dedi, columns=["Imagen", "Nombre", "Apellido(s)", "Grupo", "Dedicación al curso", "Conexiones por día"])
 
     df_final=ejecutar_flujo(df_dedi, excel_porcentaje, df_cali, nombre_final)
+
     return df_final
