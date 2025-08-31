@@ -1,5 +1,5 @@
 import streamlit as st
-from main import procesar_cursos, cursos
+from main import procesar_cursos
 from Funciones import colorear,borrar_excel
 from Subir_A_Drive import subir_a_drive
 #
@@ -206,3 +206,4 @@ def main():
 if __name__=='__main__':
 
     main()
+
