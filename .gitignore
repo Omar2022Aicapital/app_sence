@@ -1,0 +1,9 @@
+# Ignorar credenciales y archivos de entorno
+credenciales.json
+.env
+
+# Ignorar archivos generados por Python
+__pycache__/
+
+# Ignorar archivos de Excel generados
+*.xlsx
